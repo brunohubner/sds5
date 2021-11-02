@@ -1,6 +1,6 @@
 export default function DataTable() {
     return (
-        <div className="table-responsive">
+        <div className="table-responsive mb-3">
             <table className="table table-striped table-sm">
                 <thead>
                     <tr>

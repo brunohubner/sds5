@@ -1,0 +1,13 @@
+.footer p {
+    font-style: italic;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
