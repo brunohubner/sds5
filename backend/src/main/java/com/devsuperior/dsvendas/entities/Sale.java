@@ -29,6 +29,15 @@ public class Sale {
     public Sale() {
     }
     
+    public Sale(Long id, Integer visited, Integer deals, Double amount, LocalDate date, Seller seller) {
+        this.setId(id);
+        this.setVisited(visited);
+        this.setDeals(deals);
+        this.setAmount(amount);
+        this.setDate(date);
+        this.setSeller(seller);
+    }
+
     public Seller getSeller() {
         return seller;
     }
@@ -76,14 +85,4 @@ public class Sale {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public Sale(Long id, Integer visited, Integer deals, Double amount, LocalDate date, Seller seller) {
-        this.setId(id);
-        this.setVisited(visited);
-        this.setDeals(deals);
-        this.setAmount(amount);
-        this.setDate(date);
-        this.setSeller(seller);
-    }
-    
 }
