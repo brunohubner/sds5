@@ -26,6 +26,7 @@ export default function DonutChart() {
             const series = data.map(x => x.sum)
             setDonutChartData({ labels, series })
         })
+        .catch(error => console.log(error.message))
     }, [])
     
     const options = {

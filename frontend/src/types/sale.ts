@@ -10,15 +10,15 @@ export type Sale = {
 }
 
 export type SalePage = {
-    content: Sale[]
+    content?: Sale[]
     last: boolean
     totalPages: number
     totalElements: number
     first: boolean
-    size: number
+    size?: number
     number: number
-    numberOfElements: number
-    empty: boolean
+    numberOfElements?: number
+    empty?: boolean
 }
 
 export type SaleSum = {

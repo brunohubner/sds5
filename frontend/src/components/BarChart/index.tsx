@@ -48,6 +48,7 @@ export default function BarChart() {
                     }]
                 })
             })
+            .catch(error => console.log(error.message))
     }, [])
 
     // const mockData = {
