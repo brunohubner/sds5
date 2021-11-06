@@ -6,7 +6,7 @@ export default function Pagination() {
     const { page, changePage } = useContext(SaleContext)
 
     return (
-        <div className="row d-flex justify-content-center">
+        <div className="row d-flex justify-content-center noSelect">
             <nav>
                 <ul className="pagination">
                     <li className={`page-item ${page.first ? "disabled" : ""}`}>

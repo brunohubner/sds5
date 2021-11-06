@@ -30,3 +30,7 @@ html, body {
 .text-primary {
     color: var(--color-primary) !important;
 }
+
+.noSelect {
+    user-select: none;
+}

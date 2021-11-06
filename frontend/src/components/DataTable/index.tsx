@@ -3,6 +3,7 @@ import Pagination from "components/Pagination"
 import { SaleContext } from "context/SaleContext"
 import { useContext } from "react"
 import { formatLocalDate } from "utils/formatLocalDate"
+import SwitchIcon from "assets/SwitchIcon"
 
 export default function DataTable() {
     const {page, sortByDate, sortBySeller, sortByAmount, 
@@ -12,19 +13,19 @@ export default function DataTable() {
         <div className="d-flex flex-column align-items-center">
             <Pagination></Pagination>
             <div className="table-responsive mb-3 w-100">
-                <table className="table table-striped table-sm">
+                <table id="table" className="table table-striped table-sm">
                     <thead>
                         <tr>
                             <th><button className="btn-sort" 
-                                onClick={sortByDate}>Data</button></th>
+                                onClick={sortByDate}>Data <SwitchIcon /></button></th>
                             <th><button className="btn-sort" 
-                                onClick={sortBySeller}>Vendedor</button></th>
+                                onClick={sortBySeller}>Vendedor <SwitchIcon /></button></th>
                             <th><button className="btn-sort" 
-                                onClick={sortByVisited}>Clientes visitados</button></th>
+                                onClick={sortByVisited}>Clientes visitados <SwitchIcon /></button></th>
                             <th><button className="btn-sort" 
-                                onClick={sortByDeals}>Negócios fechados</button></th>
+                                onClick={sortByDeals}>Negócios fechados <SwitchIcon /></button></th>
                             <th><button className="btn-sort" 
-                                onClick={sortByAmount}>Valor</button></th>
+                                onClick={sortByAmount}>Valor <SwitchIcon /></button></th>
                         </tr>
                     </thead>
                     <tbody>

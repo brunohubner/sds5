@@ -8,6 +8,7 @@
 
 .table .btn-sort:hover {
     text-decoration: underline;
+    color: #777;
 }
 
 .table tbody {
@@ -16,4 +17,8 @@
 
 .table tbody tr {
     border-bottom: 1px solid #FFF!important;
+}
+
+.table svg {
+    height: 18px;
 }
