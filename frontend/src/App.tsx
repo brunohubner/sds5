@@ -1,7 +1,10 @@
+import SaleProvider from "context/SaleContext"
 import Routes from "Routes"
 
 export default function App() {
     return (
-        <Routes></Routes>
+        <SaleProvider>
+            <Routes></Routes>
+        </SaleProvider>
     )
 }
