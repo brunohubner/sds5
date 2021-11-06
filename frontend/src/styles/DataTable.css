@@ -1,0 +1,19 @@
+.table .btn-sort {
+    background-color: #fff;
+    border: none;
+    font-weight: bold;
+    padding: 0;
+    color: #444;
+}
+
+.table .btn-sort:hover {
+    text-decoration: underline;
+}
+
+.table tbody {
+    border: 0!important;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #FFF!important;
+}

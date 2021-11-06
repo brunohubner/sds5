@@ -1,10 +1,12 @@
+import "styles/DataTable.css"
 import Pagination from "components/Pagination"
 import { SaleContext } from "context/SaleContext"
 import { useContext } from "react"
 import { formatLocalDate } from "utils/formatLocalDate"
 
 export default function DataTable() {
-    const {page} = useContext(SaleContext)
+    const {page, sortByDate, sortBySeller, sortByAmount, 
+        sortByDeals, sortByVisited } = useContext(SaleContext)
 
     return (
         <div className="d-flex flex-column align-items-center">
@@ -13,11 +15,16 @@ export default function DataTable() {
                 <table className="table table-striped table-sm">
                     <thead>
                         <tr>
-                            <th>Data</th>
-                            <th>Vendedor</th>
-                            <th>Clientes visitados</th>
-                            <th>Negócios fechados</th>
-                            <th>Valor</th>
+                            <th><button className="btn-sort" 
+                                onClick={sortByDate}>Data</button></th>
+                            <th><button className="btn-sort" 
+                                onClick={sortBySeller}>Vendedor</button></th>
+                            <th><button className="btn-sort" 
+                                onClick={sortByVisited}>Clientes visitados</button></th>
+                            <th><button className="btn-sort" 
+                                onClick={sortByDeals}>Negócios fechados</button></th>
+                            <th><button className="btn-sort" 
+                                onClick={sortByAmount}>Valor</button></th>
                         </tr>
                     </thead>
                     <tbody>

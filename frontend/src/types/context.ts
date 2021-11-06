@@ -25,6 +25,11 @@ export type SaleContextData = {
     getSaleSum: () => void
     getPage: () => void
     changePage: (index: number) => void
+    sortByDate: () => void
+    sortBySeller: () => void
+    sortByDeals: () => void
+    sortByVisited: () => void
+    sortByAmount: () => void
 }
 
 export type SaleProviderProps = {

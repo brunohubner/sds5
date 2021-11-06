@@ -1,6 +1,6 @@
 import { INITIAL_BAR_CHART_STATE, INITIAL_DONUT_CHART_STATE, INITIAL_PAGE_STATE } from './states';
 import { BarChartData, DonutChartData, SaleContextData, SaleProviderProps } from 'types/context';
-import { SalePage, SaleSuccess, SaleSum } from 'types/sale';
+import { Sale, SalePage, SaleSuccess, SaleSum } from 'types/sale';
 import { createContext, useState, useEffect } from "react";
 import { BASE_URL } from 'utils/request';
 import { round } from 'utils/round';
@@ -14,6 +14,7 @@ export default function SaleProvider(props: SaleProviderProps) {
     const [donutChartData, setDonutChartData] = useState<DonutChartData>(INITIAL_DONUT_CHART_STATE)
     const [page, setPage] = useState<SalePage>(INITIAL_PAGE_STATE)
     const [activePage, setActivePage] = useState(0)
+    const [sorted, setSorted] = useState(false)
 
     function getSaleSuccess() {
         axios.get(`${BASE_URL}/sales/success-by-seller`)
@@ -53,6 +54,126 @@ export default function SaleProvider(props: SaleProviderProps) {
             .catch(error => console.log(error.message))
     }
 
+    function sortByDate() {
+        if(sorted) {
+            setPage(prevState => {
+                const content = prevState.content.sort((a: Sale, b: Sale) => {
+                    if(a.date < b.date) return -1
+                    if(a.date > b.date) return 1
+                    return 0
+                })
+                return { ...prevState, content }
+            })
+            setSorted(false)
+        } else {
+            setPage(prevState => {
+                const content = prevState.content.sort((a: Sale, b: Sale) => {
+                    if(a.date > b.date) return -1
+                    if(a.date < b.date) return 1
+                    return 0
+                })
+                return { ...prevState, content }
+            })
+            setSorted(true)
+        }
+    }
+
+    function sortBySeller() {
+        if(sorted) {
+            setPage(prevState => {
+                const content = prevState.content.sort((a: Sale, b: Sale) => {
+                    if(a.seller.name < b.seller.name) return -1
+                    if(a.seller.name > b.seller.name) return 1
+                    return 0
+                })
+                return { ...prevState, content }
+            })
+            setSorted(false)
+        } else {
+            setPage(prevState => {
+                const content = prevState.content.sort((a: Sale, b: Sale) => {
+                    if(a.seller.name > b.seller.name) return -1
+                    if(a.seller.name < b.seller.name) return 1
+                    return 0
+                })
+                return { ...prevState, content }
+            })
+            setSorted(true)
+        }
+    }
+
+    function sortByVisited() {
+        if(sorted) {
+            setPage(prevState => {
+                const content = prevState.content.sort((a: Sale, b: Sale) => {
+                    if(a.visited < b.visited) return -1
+                    if(a.visited > b.visited) return 1
+                    return 0
+                })
+                return { ...prevState, content }
+            })
+            setSorted(false)
+        } else {
+            setPage(prevState => {
+                const content = prevState.content.sort((a: Sale, b: Sale) => {
+                    if(a.visited > b.visited) return -1
+                    if(a.visited < b.visited) return 1
+                    return 0
+                })
+                return { ...prevState, content }
+            })
+            setSorted(true)
+        }
+    }
+
+    function sortByDeals() {
+        if(sorted) {
+            setPage(prevState => {
+                const content = prevState.content.sort((a: Sale, b: Sale) => {
+                    if(a.deals < b.deals) return -1
+                    if(a.deals > b.deals) return 1
+                    return 0
+                })
+                return { ...prevState, content }
+            })
+            setSorted(false)
+        } else {
+            setPage(prevState => {
+                const content = prevState.content.sort((a: Sale, b: Sale) => {
+                    if(a.deals > b.deals) return -1
+                    if(a.deals < b.deals) return 1
+                    return 0
+                })
+                return { ...prevState, content }
+            })
+            setSorted(true)
+        }
+    }
+
+    function sortByAmount() {
+        if(sorted) {
+            setPage(prevState => {
+                const content = prevState.content.sort((a: Sale, b: Sale) => {
+                    if(a.amount < b.amount) return -1
+                    if(a.amount > b.amount) return 1
+                    return 0
+                })
+                return { ...prevState, content }
+            })
+            setSorted(false)
+        } else {
+            setPage(prevState => {
+                const content = prevState.content.sort((a: Sale, b: Sale) => {
+                    if(a.amount > b.amount) return -1
+                    if(a.amount < b.amount) return 1
+                    return 0
+                })
+                return { ...prevState, content }
+            })
+            setSorted(true)
+        }
+    }
+
     useEffect(getPage, [activePage])
 
     return (
@@ -64,7 +185,12 @@ export default function SaleProvider(props: SaleProviderProps) {
             getSaleSuccess,
             getSaleSum,
             getPage,
-            changePage
+            changePage,
+            sortByDate,
+            sortBySeller,
+            sortByVisited,
+            sortByDeals,
+            sortByAmount
         }}>
             {props.children}
         </SaleContext.Provider>

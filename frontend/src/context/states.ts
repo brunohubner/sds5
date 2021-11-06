@@ -15,6 +15,7 @@ export const INITIAL_DONUT_CHART_STATE: DonutChartData = {
 }
 
 export const INITIAL_PAGE_STATE: SalePage = {
+    content: [],
     first: true,
     last: true,
     number: 0,
