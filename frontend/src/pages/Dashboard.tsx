@@ -20,7 +20,7 @@ export default function Dashboard() {
                         <DonutChart></DonutChart>
                     </div>
                 </div>
-                <div className="py-2">
+                <div className="pt-3">
                     <h2 className="text-primary">Todas as vendas</h2>
                 </div>
                 <DataTable></DataTable>
