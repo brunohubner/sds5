@@ -5,7 +5,7 @@ import Chart from "react-apexcharts"
 const options = {
     plotOptions: {
         bar: {
-            horizontal: true,
+            horizontal: true
         }
     }
 }
@@ -18,6 +18,7 @@ export default function BarChart() {
             options={{ ...options, xaxis: barChartData.labels }}
             series={barChartData.series}
             type="bar"
-            height={240} ></Chart>
+            height={240}
+        ></Chart>
     )
 }

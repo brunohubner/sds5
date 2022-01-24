@@ -12,10 +12,11 @@ export default function DonutChart() {
     const { donutChartData } = useContext(SaleContext)
 
     return (
-        <Chart 
+        <Chart
             options={{ ...options, labels: donutChartData.labels }}
             series={donutChartData.series}
             type="donut"
-            height={240} ></Chart>
+            height={240}
+        ></Chart>
     )
 }

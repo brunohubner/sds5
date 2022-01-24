@@ -12,11 +12,11 @@
 }
 
 .table tbody {
-    border: 0!important;
+    border: 0 !important;
 }
 
 .table tbody tr {
-    border-bottom: 1px solid #FFF!important;
+    border-bottom: 1px solid #fff !important;
 }
 
 .table svg {

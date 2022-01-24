@@ -12,11 +12,15 @@ export default function Dashboard() {
                 <h1 className="text-primary py-2">Dashboard de vendas</h1>
                 <div className="row px-3">
                     <div className="col-sm-6">
-                        <h5 className="text-secondary text-center">Taxa de sucesso (%)</h5>
+                        <h5 className="text-secondary text-center">
+                            Taxa de sucesso (%)
+                        </h5>
                         <BarChart></BarChart>
                     </div>
                     <div className="col-sm-6">
-                        <h5 className="text-secondary text-center">Participação nas vendas</h5>
+                        <h5 className="text-secondary text-center">
+                            Participação nas vendas
+                        </h5>
                         <DonutChart></DonutChart>
                     </div>
                 </div>
